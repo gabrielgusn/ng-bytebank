@@ -1,4 +1,7 @@
+import { Transference } from './transference.model';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +9,9 @@ import { Injectable } from '@angular/core';
 export class TransferenceService {
 
   private transferenceList: any[];
+  private url = 'http://localhost:3000/transferences';
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     this.transferenceList = [];
   }
 
@@ -15,10 +19,14 @@ export class TransferenceService {
     return this.transferenceList;
   }
 
+  allTransferences(): Observable<Transference[]>{
+    return this.httpClient.get<Transference[]>(this.url);
+  }
+
   transferLocal(transference: any){
-    // console.log('Evento:', $event);
     this.feedData(transference);
-    this.transferenceList.push(transference);
+    this.transferenceList.push(transference); //before API integration
+    // return this.httpClient.get<Transference[]>(this.url);
   }
 
   private feedData(transference: any){

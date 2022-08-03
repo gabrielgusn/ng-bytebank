@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NewTransferenceComponent } from './new-transference/new-transference.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
@@ -18,7 +19,7 @@ registerLocaleData(localePt, 'pt');
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule, HttpClientModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt'},
