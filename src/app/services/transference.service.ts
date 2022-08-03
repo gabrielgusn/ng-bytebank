@@ -23,10 +23,10 @@ export class TransferenceService {
     return this.httpClient.get<Transference[]>(this.url);
   }
 
-  transferLocal(transference: any){
+  transferLocal(transference: Transference): Observable<Transference>{
     this.feedData(transference);
-    this.transferenceList.push(transference); //before API integration
-    // return this.httpClient.get<Transference[]>(this.url);
+    // this.transferenceList.push(transference); //before API integration
+    return this.httpClient.post<Transference>(this.url, transference);
   }
 
   private feedData(transference: any){

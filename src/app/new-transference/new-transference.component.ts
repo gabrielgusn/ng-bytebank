@@ -1,3 +1,6 @@
+import { Transference } from './../services/transference.model';
+import { TransferenceService } from './../services/transference.service';
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from "@angular/core";
 
 @Component({
@@ -12,13 +15,22 @@ export class NewTransferenceComponent{
   value: number;
   destiny: number;
 
+  constructor(private service: TransferenceService){
+
+  }
+
   transfer(){
     console.log('New transference solicited');
 
     if(this.isValid()){
-      const valueToEmit = { value: this.value, destiny: this.destiny };
-      this.whenTransfer.emit(valueToEmit);
-      this.clearFields();
+      const valueToEmit: Transference = { value: this.value, destiny: this.destiny };
+      this.service.transferLocal(valueToEmit)
+      .subscribe(result => {
+        console.log(result);
+        this.clearFields();
+      },
+      (error) => console.error(error));
+      // this.clearFields();
     }
   }
 

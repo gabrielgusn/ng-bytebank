@@ -11,9 +11,9 @@ export class AppComponent {
 
   constructor(private service: TransferenceService){};
 
-  transferLocal($event){
-    this.service.transferLocal($event);
-  }
+  // transferLocal($event){
+  //   this.service.transferLocal($event);
+  // }
 
   showModalError($event){
     console.log($event);
