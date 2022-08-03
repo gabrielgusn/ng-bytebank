@@ -2,6 +2,7 @@ import { Transference } from './../services/transference.model';
 import { TransferenceService } from './../services/transference.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-new-transference',
@@ -15,7 +16,7 @@ export class NewTransferenceComponent{
   value: number;
   destiny: number;
 
-  constructor(private service: TransferenceService){
+  constructor(private service: TransferenceService, private router: Router){
 
   }
 
@@ -28,6 +29,7 @@ export class NewTransferenceComponent{
       .subscribe(result => {
         console.log(result);
         this.clearFields();
+        this
       },
       (error) => console.error(error));
       // this.clearFields();

@@ -1,11 +1,17 @@
-<app-new-transference
+<!-- <app-new-transference
 (valuesWithError)="showModalError($event)">
 </app-new-transference>
 
-<!-- <app-new-transference
+ <app-new-transference
 (whenTransfer)="transferLocal($event)">
-</app-new-transference> -->
+</app-new-transference>
 
-<app-extract></app-extract>
-
+<app-extract></app-extract> -->
+<header>
+  <a routerLink="extract">ByteBank</a>
+  <a routerLink="new-transference/">New Transference</a>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
 

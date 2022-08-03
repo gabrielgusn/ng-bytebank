@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app.routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NewTransferenceComponent } from './new-transference/new-transference.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,7 +20,9 @@ registerLocaleData(localePt, 'pt');
   ],
   imports: [
     BrowserModule,
-    FormsModule, HttpClientModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt'},
