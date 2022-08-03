@@ -6,12 +6,15 @@ body{
   --primary: #FFC107;
   --secondary: #132A13;
   --padding: 15px;
-  --cinza : #405040;
-  --cinza-claro: #dedede;
+  --gray : #405040;
+  --light-gray: #dedede;
 }
 
 * {
   font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .container {

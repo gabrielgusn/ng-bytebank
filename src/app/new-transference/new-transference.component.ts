@@ -29,7 +29,7 @@ export class NewTransferenceComponent{
       .subscribe(result => {
         console.log(result);
         this.clearFields();
-        this
+        this.router.navigateByUrl('extract');
       },
       (error) => console.error(error));
       // this.clearFields();

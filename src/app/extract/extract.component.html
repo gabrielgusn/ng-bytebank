@@ -1,17 +1,20 @@
-<table class="table">
-  <thead class="table__header">
-    <th class="table__header__content">Date</th>
-    <th class="table__header__content">Value</th>
-    <th class="table__header__content">Destiny</th>
-  </thead>
-  <tbody *ngIf="transferences?.length>0; else emptyList">
-    <tr class="table__line" *ngFor="let transference of transferences">
-      <td class="table__content">{{transference.date | date: 'short'}}</td>
-      <td class="table__content">{{transference.value | currency}}</td>
-      <td class="table__content">{{transference.destiny}}</td>
-    </tr>
-  </tbody>
-</table>
-<ng-template #emptyList>
-  <p>No operations registered.</p>
-</ng-template>
+<section class="container">
+  <h2 class="title">Transferences</h2>
+  <table class="table">
+    <thead class="table__header">
+      <th class="table__header__content">Date</th>
+      <th class="table__header__content">Value</th>
+      <th class="table__header__content">Destiny</th>
+    </thead>
+    <tbody *ngIf="transferences?.length>0; else emptyList">
+      <tr class="table__line" *ngFor="let transference of transferences">
+        <td class="table__content">{{transference.date | date: 'short'}}</td>
+        <td class="table__content">{{transference.value | currency}}</td>
+        <td class="table__content">{{transference.destiny}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #emptyList >
+    <p style="width: max-content;">No operations registered.</p>
+  </ng-template>
+</section>
